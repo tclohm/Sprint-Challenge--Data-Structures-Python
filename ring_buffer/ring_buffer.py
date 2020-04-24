@@ -28,8 +28,10 @@ class RingBuffer:
             # loop back to tail, since it now the oldest
             self.current = self.storage.tail
         else:
-            #                                   <========= flow ========
+            #                             <============= flow =================    
             # if we are in the middle ex; head [1], *[2], ==> [4] <=== [3] tail
+            #                             head [1], *[4], ==> [5] <=== [3] tail
+            #                             delete 4, current will point to 1
             self.current.insert_after(item)
             self.current.delete()
             self.current = self.current.prev
