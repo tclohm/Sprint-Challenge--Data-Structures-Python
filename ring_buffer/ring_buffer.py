@@ -41,7 +41,6 @@ class RingBuffer:
         # TODO: Your code here
         curr = self.storage.tail
         while curr != None:
-            print(curr)
             list_buffer_contents.append(curr.value)
             if curr.prev == None:
                 break
