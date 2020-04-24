@@ -14,20 +14,26 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-first_name = names_1[0]
+# first_name = names_1[0]
 
-bst = BinarySearchTree(first_name)
+# bst = BinarySearchTree(first_name)
 
-after_first_in_names1 = names_1[1:]
+# after_first_in_names1 = names_1[1:]
 
-[bst.insert(name) for name in after_first_in_names1]
-[duplicates.append(duplicated_name) for duplicated_name in names_2 if bst.contains(duplicated_name)]
+# [bst.insert(name) for name in after_first_in_names1]
+# [duplicates.append(duplicated_name) for duplicated_name in names_2 if bst.contains(duplicated_name)]
 
-end_time = time.time()
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
+# end_time = time.time()
+# print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+# print (f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
+
+stretch = {name for name in names_1}
+stretch_check = {dup for dup in names_2 if dup in stretch}
+end_time = time.time()
+print (f"{len(stretch_check)} duplicates:\n\n{', '.join(stretch_check)}\n\n")
+print (f"runtime: {end_time - start_time} seconds")
