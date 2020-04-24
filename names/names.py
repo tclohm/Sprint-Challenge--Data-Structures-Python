@@ -14,13 +14,14 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-bst = BinarySearchTree(names_1[0])
-for name in names_1[1:]:
-	bst.insert(name)
+first_name = names_1[0]
 
-for duplicated_name in names_2:
-	if bst.contains(duplicated_name):
-		duplicates.append(duplicated_name)
+bst = BinarySearchTree(first_name)
+
+after_first_in_names1 = names_1[1:]
+
+[bst.insert(name) for name in after_first_in_names1]
+[duplicates.append(duplicated_name) for duplicated_name in names_2 if bst.contains(duplicated_name)]
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
