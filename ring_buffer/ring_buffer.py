@@ -39,12 +39,13 @@ class RingBuffer:
         list_buffer_contents = []
 
         # TODO: Your code here
-        curr = self.storage.head
+        curr = self.storage.tail
         while curr != None:
+            print(curr)
             list_buffer_contents.append(curr.value)
-            if curr.next == None:
+            if curr.prev == None:
                 break
-            curr = curr.next
+            curr = curr.prev
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
